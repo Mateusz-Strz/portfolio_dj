@@ -15,7 +15,9 @@
         <p>{{ project.description }}</p>
         <br>
         <h5>Technology used:</h5>
-        <p>{{ project.technology }}</p>
+        {% for technology in project.technologies.all%}
+            <p>{{ technology.name }}</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock page_content %}
