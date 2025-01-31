@@ -26,9 +26,9 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --targets '[{"Key":"InstanceIds","Values":["${{ secrets.EC2_INSTANCE_ID }}"]'}]' \
             --parameters 'commands=[
-            "git pull origin main",
-            "docker-compose down",
-            "docker-compose up --build -d"
+              "git pull origin main",
+              "docker-compose down",
+              "docker-compose up --build -d"
             ]' \
             --region eu-north-1 \
             --query "Command.CommandId" \
