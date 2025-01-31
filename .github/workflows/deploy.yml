@@ -31,7 +31,7 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > deploy_key
           chmod 600 deploy_key
           ssh -i deploy_key -o StrictHostKeyChecking=no ubuntu@13.60.241.10
-          cd portfolio
+          cd portfolio_dj
           git pull origin main
           docker-compose up --build -d
           exit
