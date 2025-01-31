@@ -35,4 +35,5 @@ jobs:
           git pull origin main
           docker-compose up --build -d
           exit
-          rm -f deploy_key
+      - name: Cleanup deploy key
+        run: rm -f deploy_key
