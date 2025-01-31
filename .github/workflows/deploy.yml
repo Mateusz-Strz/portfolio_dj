@@ -21,7 +21,10 @@ jobs:
           
           echo "Updating AWS Security Group..."
           aws ec2 authorize-security-group-ingress --group-id ${{ secrets.AWS_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr $PUBLIC_IP/32
-
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-north-1
 
       - name: Setup SSH
         run: |
