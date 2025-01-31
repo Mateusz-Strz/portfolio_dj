@@ -13,6 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Get GitHub Actions IP
+        run: |
+          echo "Fetching GitHub Actions public IP..."
+          PUBLIC_IP=$(curl -s https://api64.ipify.org)
+          echo "GitHub Actions IP: $PUBLIC_IP"
+          
+          echo "Updating AWS Security Group..."
+          aws ec2 authorize-security-group-ingress --group-id ${{ secrets.AWS_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr $PUBLIC_IP/32
+
+
       - name: Setup SSH
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > deploy_key
