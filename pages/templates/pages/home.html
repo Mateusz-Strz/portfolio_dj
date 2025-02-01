@@ -1,5 +1,52 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-    <h1>Hello, World! test CI/CD</h1>
+
+    <!-- Hero Section -->
+    <div class="pt-24">
+        <div class="container mx-auto px-4 h-screen flex items-center">
+            <div class="text-center mx-auto">
+                <img src="/api/placeholder/150/150" alt="Profile" class="rounded-full mx-auto mb-8">
+                <h1 class="text-5xl font-bold text-gray-800 mb-4">Mateusz Strzeżek</h1>
+                <h2 class="text-2xl text-gray-600 mb-8">Machine Learning Engineer & Python Developer</h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Specjalizuję się w tworzeniu zaawansowanych rozwiązań z wykorzystaniem uczenia maszynowego
+                    i rozwoju aplikacji w Pythonie. Z pasją przekształcam dane w wartościowe insighty biznesowe.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="/projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+                        Zobacz projekty
+                    </a>
+                    <button class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50">
+                        Kontakt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="bg-white py-20">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-semibold text-center mb-12">Technologie</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4">
+                    <div class="text-4xl mb-4">🐍</div>
+                    <h4 class="font-semibold">Python</h4>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h4 class="font-semibold">Machine Learning</h4>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h4 class="font-semibold">Data Science</h4>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h4 class="font-semibold">Engineering</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock page_content %}
