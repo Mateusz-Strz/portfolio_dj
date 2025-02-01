@@ -37,10 +37,14 @@ jobs:
           COMMAND_ID=$(aws ssm send-command \
             --document-name "AWS-RunShellScript" \
             --targets '[{"Key":"InstanceIds","Values":["${{ secrets.EC2_INSTANCE_ID }}"]}]' \
-            --parameters '{"commands":["git pull origin main", "docker-compose down", "docker-compose up --build -d"]}' \
-            --region eu-north-1 \
-            --query "Command.CommandId" \
-            --output text)
+            --parameters '{"commands":[
+              "if [ ! -d ~/portfolio/.git ]; then rm -rf ~/portfolio && git clone https://github.com/Mateusz-Strz/portfolio_dj.git ~/portfolio; fi",
+              "cd ~/portfolio",
+              "git pull origin main",
+              "docker-compose down",
+              "docker-compose up --build -d"
+            ]}'
+
 
           aws ssm wait command-executed \
             --command-id "$COMMAND_ID" \
